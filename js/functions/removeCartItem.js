@@ -5,6 +5,8 @@ export function removeCartItem(e) {
 
   const currentCartItems = getCurrentChart();
 
+  console.log(currentCartItems);
+
   const newCart = currentCartItems.filter((cup) => cup.id !== id);
   saveChart(newCart);
 

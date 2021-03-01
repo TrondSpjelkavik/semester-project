@@ -1,5 +1,6 @@
 import { getToken } from "../utils/userStorage.js";
 import { cupsUrl } from "../settings/api.js";
+import { displayMessage } from "../functions/displayMessage.js";
 
 const queryString = document.location.search;
 
@@ -46,7 +47,9 @@ export function displayEdit(apiCups) {
        </div>
        <div>
        </div>
+       <div class="message-container"></div>
       <button type="submit" class="cta-btn add-btn">Update cup</button>
+     
     </form>
     </div>
   </div>
@@ -119,15 +122,24 @@ export function displayEdit(apiCups) {
     try {
       const response = await fetch(url, options);
       const data = await response.json();
-      console.log(data);
 
       if (data.updated_at) {
-        console.log("product is updated");
-        location.reload();
+        displayMessage("success", "Cup is updated", ".message-container");
+        let timeoutCounter;
+
+        timeoutCounter = window.setTimeout(reloadPage, 1000);
+
+        function reloadPage() {
+          location.reload();
+        }
       }
 
       if (data.error) {
-        console.log(data.error);
+        displayMessage(
+          "error",
+          `Sorry, an error ocurred: ${data.error}`,
+          ".message-container"
+        );
       }
     } catch (error) {
       console.log(error);

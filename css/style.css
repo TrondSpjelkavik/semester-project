@@ -1010,14 +1010,14 @@ footer {
 
 .added-to-cart {
   position: absolute;
-  bottom: -40px;
+  bottom: -10px;
   font-weight: 700;
   border-bottom: 3px solid #ffa500;
 }
 
 @media (max-width: 728px) {
   .added-to-cart {
-    bottom: -55px;
+    bottom: -90px;
     border-bottom: 2px solid #ffa500;
   }
 }

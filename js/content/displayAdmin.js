@@ -53,9 +53,9 @@ export function displayAdminPanel(apiCups) {
               <input type="checkbox" name="choice-radio"  id="popularCup">
               Popular
             </div> 
-              
-            <button type="submit" class="cta-btn add-btn">Add a new cup</button>
             <div class="message-container"></div>   
+            <button type="submit" class="cta-btn add-btn">Add a new cup</button>
+           
           </form>
       </div>
   </div>
@@ -145,7 +145,6 @@ export function displayAdminPanel(apiCups) {
         displayMessage("success", "Cup Added", ".message-container");
 
         let timeoutCounter;
-
         timeoutCounter = window.setTimeout(reload, 1000);
 
         function reload() {
@@ -254,19 +253,19 @@ export function displayAdminPanel(apiCups) {
         e.target.classList.toggle("fas");
         e.target.classList.toggle("far");
         const id = e.target.dataset.id;
-        let test = e.target.dataset.isfeatured;
+        let featured = e.target.dataset.isfeatured;
 
-        if (test === "false") {
-          test = "true";
-        } else if (test === "true") {
-          test = "false";
+        if (featured === "false") {
+          featured = "true";
+        } else if (featured === "true") {
+          featured = "false";
         }
 
         const url = cupsUrl + "/" + id;
 
         const token = getToken();
 
-        const data = JSON.stringify({ isFeatured: test });
+        const data = JSON.stringify({ isFeatured: featured });
 
         const options = {
           method: "PUT",

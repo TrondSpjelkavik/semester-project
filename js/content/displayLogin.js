@@ -82,7 +82,7 @@ export async function displayLogin(apiImage) {
 
       let timeoutCounter;
 
-      timeoutCounter = window.setTimeout(redirect, 2000);
+      timeoutCounter = window.setTimeout(redirect, 1000);
 
       function redirect() {
         if (data.user.role.type === "admin") {
